@@ -19,13 +19,13 @@ int main() {
     cout << "* At least 8 characters long \n";
     cout << "* Only numbers or letters (a-z, 0-9) \n";
     cout << "* Must contain at least two digits \n";
-    cout << ": ";
+    cout << "Enter your password now: ";
     
     // enter ssn
     getline(cin, pass_input);
     
-    int char_count = pass_input.length(),
-    digit_count = 0;
+    int char_count = static_cast<int>(pass_input.length());
+    int digit_count = 0;
     bool letters_digits_only = 0;
     
     for (int i = 0; i <= pass_input.length(); i++) {
@@ -38,9 +38,9 @@ int main() {
     }
     
     if (char_count >= 8 && digit_count >= 2 && letters_digits_only) {
-        cout << "You shall pass" << endl;
+        cout << "Valid Password" << endl;
     } else {
-        cout << "You shall not pass!" << endl;
+        cout << "Invalid Password" << endl;
     }
     
     return 0;
