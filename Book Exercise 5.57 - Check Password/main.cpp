@@ -6,10 +6,42 @@
 //  Copyright © 2016 COMP130. All rights reserved.
 //
 
-#include <iostream>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main() {
+    
+    string pass_input = " ";
+    
+    cout << "Create a password. Password must be: \n";
+    cout << "* At least 8 characters long \n";
+    cout << "* Only numbers or letters (a-z, 0-9) \n";
+    cout << "* Must contain at least two digits \n";
+    cout << ": ";
+    
+    // enter ssn
+    getline(cin, pass_input);
+    
+    int char_count = pass_input.length(),
+    digit_count = 0;
+    bool letters_digits_only = 0;
+    
+    for (int i = 0; i <= pass_input.length(); i++) {
+        if ( (toupper(pass_input[i]) > 'A' && toupper(pass_input[i]) < 'Z') ||  isdigit(pass_input[i])) {
+            letters_digits_only = 1;
+            if (isdigit(pass_input[i])) {
+                digit_count++;
+            }
+        }
+    }
+    
+    if (char_count >= 8 && digit_count >= 2 && letters_digits_only) {
+        cout << "You shall pass" << endl;
+    } else {
+        cout << "You shall not pass!" << endl;
+    }
+    
     return 0;
 }
